@@ -10,6 +10,14 @@ saludar=function(){
 //mostrar texto
     let mensajeBienvenida="Bienvevido " +nombre+ " "+apellido;
     mostrarTexto("lblResultado",mensajeBienvenida);
+    //mostrar imagen
+    mostrarImagen("imgSaludo","./imagenes/stitch.gif")
+}
+mostrarImagen=function(idComponente,rutaImagen){
+     let componente;
+    componente=document.getElementById(idComponente);
+    componente.src=rutaImagen;
+
 }
 mostrarTexto=function(idComponente,mensaje){
     let componente;
