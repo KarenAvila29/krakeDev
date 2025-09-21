@@ -12,6 +12,8 @@ saludar=function(){
     mostrarTexto("lblResultado",mensajeBienvenida);
     //mostrar imagen
     mostrarImagen("imgSaludo","./imagenes/stitch.gif")
+    //mostar texto en caja
+    mostrarTextoEnCaja("txtNombre","")
 }
 mostrarImagen=function(idComponente,rutaImagen){
      let componente;
@@ -23,6 +25,11 @@ mostrarTexto=function(idComponente,mensaje){
     let componente;
     componente=document.getElementById(idComponente);
     componente.innerText=mensaje;
+}
+mostrarTextoEnCaja=function(idComponente,mensaje){
+    let componente;
+    componente=document.getElementById(idComponente);
+    componente.value=mensaje;
 }
 recuperarTexto=function(idComponente){
     let componente;
