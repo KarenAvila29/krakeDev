@@ -11,7 +11,7 @@ saludar=function(){
     let mensajeBienvenida="Bienvevido " +nombre+ " "+apellido;
     mostrarTexto("lblResultado",mensajeBienvenida);
     //mostrar imagen
-    mostrarImagen("imgSaludo","./imagenes/stitch.gif")
+    mostrarImagen("imgSaludo","./imagenes/stitch.gif");
     //mostar texto en caja
-    mostrarTextoEnCaja("txtNombre","")
+    mostrarTextoEnCaja("txtNombre","");
 }
