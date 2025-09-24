@@ -6,12 +6,17 @@ calcularPromedioNotas=function(){
     let promedioFinal1=promedioFinal.toFixed(2);
     cambiarTexto("lblPromedio",promedioFinal1);
     
-    if(promedioFinal<7 && promedioFinal>0){  
-         //cambiarTexto("lblMensaje","REPROBADO");
-         cambiarImagen("imgEstado","FRACASO.gif");
-    }else {
-        // cambiarTexto("lblMensaje","BUEN TRABAJO");
-       cambiarImagen("imgEstado","EXITO.gif");
- 
+    if(promedioFinal1<5&&promedioFinal1>0){  
+         cambiarTexto("lblMensaje","REPROBADO");
+         cambiarImagen("imgEstado","REPROBADO.gif");
+    }else if(promedioFinal1>=5&&promedioFinal1<=8){
+         cambiarTexto("lblMensaje","BUEN TRABAJO");
+       cambiarImagen("imgEstado","APROBADO.gif");
+    }else if(promedioFinal1>=8&&promedioFinal1<=10){
+        cambiarTexto("lblMensaje","EXCELENTE");
+       cambiarImagen("imgEstado","EXCELENTE.gif");
+    }else{
+        cambiarTexto("lblMensaje","DATOS INCORRECTOS");
+       cambiarImagen("imgEstado","ERROR.gif");
     }
 }
