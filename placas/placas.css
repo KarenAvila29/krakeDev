@@ -1,0 +1,67 @@
+body{
+  background-color: rgb(139, 165, 213);
+    background-size: cover;
+    margin-left: 0px;
+    margin-right: 0px;
+}
+.principal{
+    display: flex;
+    background-color: rgba(240, 248, 255, 0.8);
+    margin-left: 0px;
+    margin-right:0px;
+   /* flex-direction: row;*/
+    margin-top: 225px;
+     justify-content: center;
+
+}
+.titulos{
+    display: flex;
+    flex-direction: row;
+    /*justify-content: center;*/
+    margin: 50px;
+    font-size: 30px;
+    font-family:  Verdana, sans-serif;
+  justify-content: center;
+}
+.cuadros{
+ border-radius: 3px;
+    border-color: #4CAF50;
+    color:rgb(85, 83, 83);
+   
+   
+}.boton{
+     flex: 0.5;            
+      padding: 12px;
+      font-size: 15px;
+    text-align: center;
+      border-radius: 6px;
+      cursor: pointer;
+     
+}
+.estiloBoton{
+    background-color: rgb(156, 156, 179); 
+    border: none;
+    color: white;
+    padding: 15px;
+   
+    font-size: 16px;
+    border-radius: 8px;
+}
+.contenido{
+   
+    font-size: 15px;
+    color: black;
+    font-family: Verdana, Geneva, Tahoma, sans-serif;
+       justify-content: center;
+}   
+.resultados{
+    text-align:  center;
+}
+.texto{
+    display: flex;
+    flex-direction: row;
+    margin: 5px;
+    font-size: 15px;
+    font-family:  Georgia;
+  justify-content: center;
+}
