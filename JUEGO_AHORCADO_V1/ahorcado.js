@@ -20,9 +20,16 @@ guardarPalabra=function(){
       }  
    else{
         palabraSecreta=palabra;
-        
    }
   }  
+  guardarLetra=function(letra,posicion){
+    if (posicion >= 0 && posicion <= 4) {
+        let div = document.getElementById("div" + posicion);
+        if (div) {
+          div.textContent = letra;
+        }
+      }
+  }
 esMayuscula=function(caracter){
     let codigoLetra=caracter.charCodeAt(caracter);
     if(codigoLetra>=65 && codigoLetra<=90 ){  
