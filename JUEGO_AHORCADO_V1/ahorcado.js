@@ -38,7 +38,7 @@ guardarPalabra=function(){
                      alert(" HA PERDIDO");
             }
         }else{
-            errores=errores+1;
+            
              alert(" SOLO SE ACEPTAN MAYUSCULAS");
         }
   }
@@ -62,19 +62,47 @@ guardarPalabra=function(){
         }
     }
         if (letrasEncontradas === 0) {
+            errores=errores+1;
+              mostrarAhorcado(errores);
         alert("LA LETRA NO ES PARTE DE LA PALABRA");
         }
          
+          
     }
-    
-
-
-  
 esMayuscula=function(caracter){
     let codigoLetra=caracter.charCodeAt(caracter);
     if(codigoLetra>=65 && codigoLetra<=90 ){  
         return true;
     }else{
         return false;
+    }
+}
+mostrarAhorcado=function(){
+    if(errores == 1){
+        mostrarImagen("ahorcadoImagen","Ahorcado_01.png");
+    }
+    if(errores == 2){
+        mostrarImagen("ahorcadoImagen","Ahorcado_02.png");
+    }
+    if(errores == 3){
+        mostrarImagen("ahorcadoImagen","Ahorcado_03.png");
+    }
+    if(errores == 4){
+        mostrarImagen("ahorcadoImagen","Ahorcado_04.png");
+    }
+    if(errores == 5){
+        mostrarImagen("ahorcadoImagen","Ahorcado_05.png");
+    }
+    if(errores == 6){
+        mostrarImagen("ahorcadoImagen","Ahorcado_06.png");
+    }
+    if(errores == 7){
+        mostrarImagen("ahorcadoImagen","Ahorcado_07.png");
+    }
+    if(errores == 8){
+        mostrarImagen("ahorcadoImagen","Ahorcado_08.png");
+    }
+    if(errores == 9){
+        mostrarImagen("ahorcadoImagen","Ahorcado_09.png");
     }
 }
