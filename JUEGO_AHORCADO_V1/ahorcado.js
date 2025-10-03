@@ -1,7 +1,7 @@
 //No se olvide de respirar, mantenga la calma y demuestre lo que sabe
 let palabraSecreta;
 let intentos=0;
-let coincidencias;
+let coincidencias=0;
 let errores=0;
 guardarPalabra=function(){
     let resultado = true;
@@ -27,20 +27,24 @@ guardarPalabra=function(){
   }  
   ingresarLetra=function(){
     let letra1= recuperarTexto("txtLetra");
-    intentos=intentos+1;
+   
         if(esMayuscula(letra1)==true){
+            let resultado=0;
             validar(letra1);
             coincidencias=coincidencias+1;
             if(coincidencias==5){
-                alert(" HA GANADO");
-            }
+                   mostrarImagen("ahorcadoImagen","ganador.gif");
+             }else{
+                 intentos=intentos+1;
             if(intentos==10){
-                     alert(" HA PERDIDO");
-            }
-        }else{
+                   mostrarImagen("ahorcadoImagen","gameOver.gif");
+            }}
+         }else   
+            {
             
              alert(" SOLO SE ACEPTAN MAYUSCULAS");
         }
+  
   }
   mostrarLetra=function(letra,posicion){
     if (posicion >= 0 && posicion <= 4) {
