@@ -23,24 +23,15 @@ if(limite>=5 && limite<=20){
         aleatorio[l]=res;
     }
 mostrarResultados(aleatorio);
-
-
 }
 }
+
 mostrarResultados=function(arregloNumeros){
   let cmpTabla = document.getElementById("divTabla");
   let contenidoTabla = "<table><tr><th>ARREGLO</th></tr>";
-
-  // El bucle debe usar la propiedad .length del arreglo
   for (let i = 0; i < arregloNumeros.length; i++) {
-    // Agrega una nueva fila con cada elemento del arreglo
     contenidoTabla += "<tr><td>" + arregloNumeros[i] + "</td></tr>";
   }
-
-  // Cierra la tabla
   contenidoTabla += "</table>";
-
-  // Actualiza el contenido del div con la tabla completa
   cmpTabla.innerHTML = contenidoTabla;
-
 }
