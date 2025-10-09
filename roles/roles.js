@@ -4,11 +4,29 @@ let empleados = [
     {cedula:"1725168130",nombre:"Karen",apellido:"Avila",sueldo:950.0}
 ]
 
+let esNuevo=false;
+
+//RETO 47 - ROLES PARTE 3
+ejecutarNuevo=function(){
+    habilitarComponente ("txtCedula");
+    habilitarComponente ( "txtNombre");
+    habilitarComponente ( "txtApellido" );
+    habilitarComponente ( "txtSueldo");
+    habilitarComponente ( "btnGuardar" );
+    esNuevo=true;
+}
+
 mostrarOpcionEmpleado=function(){
     ocultarComponente("divRol");
     ocultarComponente("divResumen");
     mostrarComponente("divEmpleado");
     mostrarEmpleados();
+    deshabilitarComponente("txtCedula");
+    deshabilitarComponente( "txtNombre");
+    deshabilitarComponente( "txtApellido" );
+    deshabilitarComponente( "txtSueldo");
+    deshabilitarComponente( "btnGuardar" );
+   
 }
 
 mostrarOpcionRol=function(){
