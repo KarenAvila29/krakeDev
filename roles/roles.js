@@ -7,6 +7,102 @@ let empleados = [
 let esNuevo=false;
 
 //RETO 47 - ROLES PARTE 3
+guardar=function(){
+   let validaciones=true;
+    //VALIDACION CEDULA
+    let valorCedula=recuperarTexto("txtCedula");
+    let digitosCedula=valorCedula.length;
+    if(digitosCedula==10){
+         for (let i = 0; i < digitosCedula; i++) {
+        let caracter = valorCedula.charAt(i);
+        // Verificar si el caracter no es un dígito
+        if (caracter < '0' || caracter > '9') {
+        mostrarTexto("lblErrorCedula", "DEBE TENER SOLO NÚMEROS");
+        validaciones=false; 
+        }
+    }
+   
+    }else{
+      mostrarTexto("lblErrorCedula", "DEBE TENER 10 NÚMEROS");
+      }
+      //VALIDACION NOMBRE
+    let valorNombre=recuperarTexto("txtNombre");
+    let digitosNombre=valorNombre.length;
+    if(digitosNombre>=3){
+         for (let i = 0; i < digitosNombre; i++) {
+        let caracter = valorNombre.charAt(i);
+        // Verificar si el caracter no es un dígito
+        if (caracter < 'A' || caracter > 'Z') {
+        mostrarTexto("lblErrorNombre", "DEBE TENER SOLO MAYUSCULAS");
+        validaciones=false;;}
+        
+    }
+   
+    }else{
+      mostrarTexto("lblErrorNombre", "DEBE TENER AL MENOS 3 LETRAS");
+      
+      }
+
+      //VALIDACION APELLIDO
+    let valorApellido=recuperarTexto("txtApellido");
+    let digitosApellido=valorApellido.length;
+    if(digitosApellido>=3){
+         for (let i = 0; i < digitosApellido; i++) {
+        let caracter = valorApellido.charAt(i);
+        // Verificar si el caracter no es un dígito
+        if (caracter < 'A' || caracter > 'Z') {
+        mostrarTexto("lblErrorApellido", "DEBE TENER SOLO MAYUSCULAS");
+        validaciones=false;;}
+        
+    }
+    }else{
+      mostrarTexto("lblErrorApellido", "DEBE TENER AL MENOS 3 LETRAS");
+      
+      }
+
+      //VALIDACION SUELDO
+    let valorSueldo=recuperarFloat("txtSueldo");
+        
+      if ((valorSueldo%1) == 0 ) {
+         mostrarTexto("lblErrorSueldo", "INGRESE UN VALOR FLOTANTE VÁLIDO (123.45)");
+    validaciones=false;;
+    
+  }
+
+    if(valorSueldo<=400 || valorSueldo>=5000){
+        
+        mostrarTexto("lblErrorSueldo", "EL RANGO ES DE 400.0 a 5000.0");
+        validaciones=false;
+    }
+  
+
+    //
+    if(validaciones!=false){
+    let resultado=buscarEmpleado(valorCedula)
+    if (resultado==null){
+        let empleado={};
+        empleado.cedula=valorCedula;
+        empleado.nombre=valorNombre;
+         empleado.apellido=valorApellido;
+        empleado.sueldo=valorSueldo;
+        let guardar=agregarEmpleado(empleado);
+        if(guardar==true){
+            alert("EMPLEADO GUARDADO CORRECTAMENTE");
+            mostrarEmpleados();
+             deshabilitarComponente("txtCedula");
+        deshabilitarComponente( "txtNombre");
+        deshabilitarComponente( "txtApellido" );
+        deshabilitarComponente( "txtSueldo");
+        deshabilitarComponente( "btnGuardar" );
+        }else{
+            alert("YA EXISTE UN EMPLEADOCON CEDULA: "+valorCedula);
+        }
+    }
+    }else {
+        alert("DEBE INGRESAR TODOS LOS DATOS");
+    }
+    }
+
 ejecutarNuevo=function(){
     habilitarComponente ("txtCedula");
     habilitarComponente ( "txtNombre");
@@ -14,6 +110,29 @@ ejecutarNuevo=function(){
     habilitarComponente ( "txtSueldo");
     habilitarComponente ( "btnGuardar" );
     esNuevo=true;
+}
+
+buscarEmpleado=function(cedula){
+    let elementoEmpleado;
+    let empleadoEncontrado=null;
+    for(let i=0;i<empleados.length;i++){
+         elementoEmpleado=empleados[i];
+         if(elementoEmpleado.cedula== cedula){
+            empleadoEncontrado=elementoEmpleado;
+            break;
+         }
+    }
+    return empleadoEncontrado;
+}
+agregarEmpleado=function(empleado){
+    let resultado=buscarEmpleado(empleado)
+    if (resultado==null){
+        empleados.push(empleado);
+            return true;
+    }else{
+        return false;
+    }
+
 }
 
 mostrarOpcionEmpleado=function(){
