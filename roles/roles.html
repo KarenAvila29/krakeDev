@@ -97,7 +97,7 @@
         </div>
     </div>
 
-    <div id="divRol">
+    <div id="divRol" onload="mostrarOpcionRol();">
         <div class="principal">
             <div class="area">
                 <div class="ingresoDatos">
@@ -105,12 +105,12 @@
                         CEDULA
                     </div>
                     <div>
-                        <input type="text" class="cajaTexto" id="txtBusquedaCedulaRol" />
+                        <input type="text" class="cajaTexto" id="txtBusquedaCedulaRol"  />
                         <div class="error" id="lblErrorBusqueda"></div>
                     </div>
                 </div>
                 <div class="contenedorBoton">
-                    <input type="button" value="BUSCAR" class="estiloBoton" />
+                    <input type="button" value="BUSCAR" class="estiloBoton" onclick="buscarPorRol();" />
                 </div>
             </div>
 

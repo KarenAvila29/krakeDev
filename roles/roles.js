@@ -125,7 +125,6 @@ guardar=function(){
              }
         }
 }
-
 ejecutarNuevo=function(){
     habilitarComponente ("txtCedula");
     habilitarComponente ( "txtNombre");
@@ -148,7 +147,7 @@ buscarEmpleado=function(cedula){
     return empleadoEncontrado;
 }
 agregarEmpleado=function(empleado){
-    let resultado=buscarEmpleado(empleado)
+    let resultado=buscarEmpleado(empleado);
     if (resultado==null){
         empleados.push(empleado);
             return true;
@@ -217,4 +216,19 @@ limpiar=function(){
    
     deshabilitarEmpleado();
      esNuevo=false;
+}
+
+
+//ROL
+buscarPorRol=function(){
+     let valorCedula=recuperarTexto("txtBusquedaCedulaRol");
+       let resultado=buscarEmpleado(valorCedula);
+       if(resultado!==null){
+           mostrarTexto("infoCedula",resultado.cedula); 
+           mensaje=(resultado.nombre + " " + resultado.apellido);
+           mostrarTexto("infoNombre",mensaje); 
+            mostrarTexto("infoSueldo",resultado.sueldo); 
+       }else{
+        alert("EL EMPLEADO NO EXISTE");
+       }
 }
