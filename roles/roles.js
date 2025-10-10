@@ -6,6 +6,22 @@ let empleados = [
 
 let esNuevo=false;
 
+ejecutarBusqueda=function(){
+    let valorCedula=recuperarTexto("txtBusquedaCedula");
+    let empleadoBusqueda=buscarEmpleado(valorCedula);
+    if(empleadoBusqueda == null){
+        alert("EMPLEADO NO EXISTE");
+        }else{
+            mostrarTextoEnCaja("txtCedula", empleadoBusqueda.cedula);
+            mostrarTextoEnCaja("txtNombre", empleadoBusqueda.nombre);
+            mostrarTextoEnCaja("txtApellido", empleadoBusqueda.apellido);
+             mostrarTextoEnCaja("txtSueldo", empleadoBusqueda.sueldo);
+              deshabilitarComponente("txtCedula");
+            habilitarComponente ( "txtNombre");
+            habilitarComponente ( "txtApellido" );
+            habilitarComponente ( "txtSueldo");
+        }
+}
 //RETO 47 - ROLES PARTE 3
 guardar=function(){
    let validaciones=true;
@@ -77,8 +93,8 @@ guardar=function(){
   
 
     //
-    if(validaciones!=false){
-    let resultado=buscarEmpleado(valorCedula)
+    if(validaciones!==false){
+    let resultado=buscarEmpleado(valorCedula);
     if (resultado==null){
         let empleado={};
         empleado.cedula=valorCedula;
@@ -89,15 +105,26 @@ guardar=function(){
         if(guardar==true){
             alert("EMPLEADO GUARDADO CORRECTAMENTE");
             mostrarEmpleados();
-         deshabilitarEmpleados();
-        }else{
-            alert("YA EXISTE UN EMPLEADOCON CEDULA: "+valorCedula);
+            deshabilitarEmpleado();
+            
         }
-    }
-    }else {
-        alert("DEBE INGRESAR TODOS LOS DATOS");
-    }
-    }
+        }else{
+          // alert("EMPLEADO EXISTE");
+           esNuevo=false;
+            if(esNuevo==false){
+             let empleadoEncontrado=buscarEmpleado(valorCedula);
+            if(empleadoEncontrado != null){
+                 empleadoEncontrado.nombre=valorNombre;
+                 empleadoEncontrado.apellido=valorApellido;
+                 empleadoEncontrado.sueldo=valorSueldo;
+                 mostrarEmpleados();
+                 alert("EMPLEADO MODIFICADO CON EXISTO");
+                 deshabilitarEmpleado();
+                 }     
+            }
+             }
+        }
+}
 
 ejecutarNuevo=function(){
     habilitarComponente ("txtCedula");
@@ -136,7 +163,8 @@ mostrarOpcionEmpleado=function(){
     ocultarComponente("divResumen");
     mostrarComponente("divEmpleado");
     mostrarEmpleados();
-    deshabilitarEmpleados();   
+   deshabilitarEmpleado();
+   
 }
 
 mostrarOpcionRol=function(){
@@ -173,10 +201,20 @@ mostrarEmpleados=function(){
 
     cmpTabla.innerHTML=contenidoTabla;
 }
-deshabilitarEmpleados=function(){
-    deshabilitarComponente("txtCedula");
+deshabilitarEmpleado=function(){
+ deshabilitarComponente("txtCedula");
     deshabilitarComponente( "txtNombre");
     deshabilitarComponente( "txtApellido" );
     deshabilitarComponente( "txtSueldo");
     deshabilitarComponente( "btnGuardar" );
+}
+limpiar=function(){
+    mostrarTextoEnCaja("txtCedula"," ");
+    mostrarTextoEnCaja("txtNombre"," ");
+    mostrarTextoEnCaja("txtApellido"," ");
+    mostrarTextoEnCaja("txtSueldo"," ");
+    mostrarTextoEnCaja("txtCedula"," ");
+   
+    deshabilitarEmpleado();
+     esNuevo=false;
 }
