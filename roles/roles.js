@@ -170,6 +170,7 @@ mostrarOpcionRol=function(){
      ocultarComponente("divEmpleado");
       ocultarComponente("divResumen");
       mostrarComponente("divRol");
+       deshabilitarComponente("BOTON");
 }
 
 mostrarOpcionResumen=function(){
@@ -221,6 +222,7 @@ limpiar=function(){
 
 //ROL
 buscarPorRol=function(){
+   
      let valorCedula=recuperarTexto("txtBusquedaCedulaRol");
        let resultado=buscarEmpleado(valorCedula);
        if(resultado!==null){
@@ -249,6 +251,58 @@ calcularRol=function(){
          mostrarTexto("infoIESS",totalIess); 
          let total=calcularValorAPagar(valorSueldo,totalIess,valorDescuento);
          mostrarTexto("infoPago",total); 
+         habilitarComponente("BOTON");
     }
+}
+
+let roles={}
+
+buscarRol=function(cedula){
+     let resultado=buscarEmpleado(valorCedula);
+     if(resultado==cedula){
+        roles={};
+     }else{
+        return null;
+     }
 
 }
+agregarRol=function(rol){
+ let valorCedula=recuperarTextoDiv("infoCedula");
+  let resultado=buscarEmpleado(valorCedula);
+ if(resultado !== valorCedula){
+    roles={}
+
+ }
+}
+
+calcularAporteEmpleador=function(sueldo){
+    let aporteEmpleador=(sueldo*11.15)/100;
+    return aporteEmpleador;
+}
+
+guardarRol=function(){
+    let valorCedula=recuperarTextoDiv("infoCedula");
+    let valorNombre=recuperarTextoDiv("infoNombre");
+    let valorSueldo=recuperarIntDiv("infoSueldo");
+    let valorIess=recuperarFloatDiv("infoIESS");
+    let valorTotal=recuperarFloatDiv("infoPago");
+    let aporteEmpleador=calcularAporteEmpleador(valorSueldo);
+    let rol={}
+     rol.cedula =valorCedula; 
+    rol.nombre=valorNombre;
+    rol.sueldo=valorSueldo;
+    rol.Iess=valorIess;
+    rol.Total =valorTotal;
+    rol.Empleador =aporteEmpleador;   
+   agregarRol();
+   alert("EXITO");
+   deshabilitarComponente("BOTON");
+
+
+}
+    /*
+let empleado={};
+        empleado.cedula=valorCedula;
+        empleado.nombre=valorNombre;
+         empleado.apellido=valorApellido;
+        empleado.sueldo=valorSueldo;*/

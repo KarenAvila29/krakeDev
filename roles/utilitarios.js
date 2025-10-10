@@ -59,13 +59,13 @@ recuperarTextoDiv=function(idComponente){
     return valorIngresado;
 }
 recuperarIntDiv = function(idComponente){
-   let valorCaja= recuperarTexto(idComponente);
+   let valorCaja= recuperarTextoDiv(idComponente);
    let valorEntero = parseInt(valorCaja);
    return valorEntero;
 }
 
 recuperarFloatDiv = function(idComponente){
-    let valorCaja= recuperarTexto(idComponente);
+    let valorCaja= recuperarTextoDiv(idComponente);
     let valorFlotante = parseFloat(valorCaja);
     return valorFlotante;
  }
