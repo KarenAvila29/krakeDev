@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+     <script src="orden.js"></script>
+    <script src="utilitarios.js"></script>
+    <link rel="stylesheet" href="orden.css"/>
+
+</head>
+
+<body onload="mostrarPersonas();">
+    </div>
+    <div id="divEmpleado">
+        <div class="principal">
+            <div class="area">
+                <div class="ingresoDatos">
+                </div>
+            </div>
+            <div class="area">
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        NOMBRE
+                    </div>
+                    <div>
+                        <input type="text" class="cajaTexto" id="txtNombre" />
+                        <div class="error" id="lblErrorNombre"></div>
+                    </div>
+                </div>
+                <div class="ingresoDatos">
+                    <div class="tituloCampo">
+                        EDAD
+                    </div>
+                    <div>
+                        <input type="text" class="cajaTexto" id="txtEdad" />
+                        <div class="error" id="lblErrorEdad"></div>
+                    </div>
+                </div>
+                
+                <div class="botones">
+                    
+                    <div class="contenedorBoton">
+                        <input type="button" value="GUARDAR" class="estiloBoton" id="btnGuardar" onclick="agregarPersona();" />
+                         <input type="button" value="ENCONTRAR MAYOR" class="estiloBoton" id="btnGuardar" onclick="determinarMayor();" />
+                        <input type="button" value="ENCONTRAR MAYOR" class="estiloBoton" id="btnGuardar" onclick="determinarMenor();"> 
+                    </div>
+                    
+                </div>
+                <div id="tablaEmpleados" class="areaTabla">
+
+                </div>
+
+                <h3> <div  id="lblMayor"></div></h3>
+                    <h3> <div  id="lblMenor"></div></h3>
+            </div>
+            <div class="logoEscuela">
+            </div>
+        </div>
+    </div>
+
+    <div id="divRol" >
+        <div class="principal">
+            <div class="area">
+                <div class="ingresoDatos">
+                </div>
+            </div>
+            <div class="area">                       
+                <div id="tablaEmpleados" class="areaTabla"></div>
+            </div>
+            
+        </div>
+    </div>
+</body>
+
+</html>
