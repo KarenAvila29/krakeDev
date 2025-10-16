@@ -26,6 +26,7 @@ probarAgregar=function(){
 }
 agregarNota=function(nota){
      notas.push(nota);
+     mostrarNotas();
 }
 //En el archivo ejercicios1.js, agregar una función calcularPromedio, que no recibe parámetros y realiza lo siguiente:
 calcularPromedio=function(){
@@ -40,4 +41,27 @@ calcularPromedio=function(){
     promedio=sumaNotas/notas.length;
     //4. Retornar promedio.
     return promedio;
+}
+
+generarTabla=function(){
+    let=contenidoTabla="";
+    let cmpTabla=document.getElementById("divTabla");
+    
+    contenidoTabla+="<table><tr><td>UNO</td></tr> "+
+    "<tr><td>DOS</td></tr></table>";
+    cmpTabla.innerHTML=contenidoTabla;
+}
+
+mostrarNotas=function(){                                                                                                                                    ;
+     let cmpTabla=document.getElementById("divTabla");
+      let=contenidoTabla="<table><tr><th> NOTA</th></tr>";
+         let miNota;        
+      for(let i=0;i<notas.length;i++){
+        miNota=notas[i];
+        contenidoTabla+="<tr> <td>";
+        contenidoTabla+=miNota;
+         contenidoTabla+="</tr></td>";
+      }
+      contenidoTabla+="</table>"
+      cmpTabla.innerHTML=contenidoTabla;
 }

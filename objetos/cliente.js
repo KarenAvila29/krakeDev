@@ -18,7 +18,7 @@ guardarCambios=function(){
 
 modificarCliente=function(cliente){
     let clienteEncontrado=buscarCliente(cliente.cedula);
-    if(clienteEncontrado != null){
+    if(clienteEncontrado !=     null){
        clienteEncontrado.nombre=cliente.nombre;
         clienteEncontrado.edad=cliente.edad;
         }else{

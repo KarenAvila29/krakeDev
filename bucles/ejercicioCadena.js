@@ -10,6 +10,7 @@ ejecutarPrueba2=function(){
     invertir=mostrarTexto("lblInvertida",invertir );
     
 }
+
 invertirCadena=function(cadena){
     let resultado =" ";
    // let cadena;
@@ -18,7 +19,6 @@ invertirCadena=function(cadena){
         
     }
     return resultado;
-
 }
 recorrerCadena=function(cadena){
     //0123456
@@ -36,3 +36,30 @@ recorrerCadena=function(cadena){
 
     }
 }
+buscarCadena=function(cadena,letra){
+    let letraIterada;
+    let existeLetra =false;
+    for(let i=0;i<cadena.length;i++){
+            letraIterada = cadena.length.charAt(i);
+            if(letraIterada==letra){
+                    existeLetra=true;
+            }
+    }
+    if(existeLetra=true){
+       return true;
+    }else{
+        return false;
+    }
+}
+/*contarMayusculas=function(cadena){
+    let letra;
+    let contadorMayusculas;
+    for(let i=0;i<cadena.length;i++){
+        letra = cadena.length.charAt(i);
+        if(esMayuscula(letra)){
+            contadorMayusculas++;
+
+        }
+        console.log(contadorMayusculas);
+    }
+}*/

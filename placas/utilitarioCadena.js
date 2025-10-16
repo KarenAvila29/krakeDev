@@ -1,5 +1,4 @@
 esMayuscula=function(caracter){
-    let letra=false;
     let codigoLetra=caracter.charCodeAt(caracter);
   //  letra=caracter.charAt(1);
  // console.log(codigoLetra);

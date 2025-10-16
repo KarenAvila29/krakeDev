@@ -36,3 +36,4 @@ recuperarFloat = function (idComponente) {
 }
 
 
+
